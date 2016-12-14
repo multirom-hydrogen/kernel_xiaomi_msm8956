@@ -31,7 +31,7 @@
 #ifdef CONFIG_KEXEC_HARDBOOT
 #define KEXEC_HB_PAGE_MAGIC 0x4a5db007
 // Hardboot: Xiaomi Mi Max (hydrogen). Address reserved in device tree.
-#define KEXEC_HB_PAGE_ADDR UL()
+#define KEXEC_HB_PAGE_ADDR UL(0xdfb00000)
 #endif
 
 #if !defined(__ASSEMBLY__)
