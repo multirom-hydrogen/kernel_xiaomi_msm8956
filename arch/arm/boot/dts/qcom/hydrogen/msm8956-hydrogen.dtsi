@@ -62,7 +62,10 @@
 			linux,reserve-contiguous-region;
 			linux,reserve-region;
 			linux,remove-completely;
-			reg = <0x0 0xdfc00000 0x0 0x00100000>;
+			/* Hardboot: reserve 1MB of space
+			 * before ramoops address of 0xdfc00000
+			*/
+			reg = <0x0 0xdfb00000 0x0 0x00200000>;
 			label = "ramoops_mem";
 		};
 
