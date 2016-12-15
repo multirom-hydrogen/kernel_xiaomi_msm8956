@@ -489,15 +489,17 @@ static struct platform_driver msm_restart_driver = {
 #ifdef CONFIG_KEXEC_HARDBOOT
 static void msm_kexec_hardboot_hook(void)
 {
+	set_dload_mode(0);
 	qpnp_pon_system_pwr_off(PON_POWER_OFF_WARM_RESET);
 }
 #endif
 
 static int __init msm_restart_init(void)
 {
+	platform_driver_register(&msm_restart_driver);
 #ifdef CONFIG_KEXEC_HARDBOOT
 	kexec_hardboot_hook = msm_kexec_hardboot_hook;
 #endif
-	return platform_driver_register(&msm_restart_driver);
+     return 0;
 }
 device_initcall(msm_restart_init);
